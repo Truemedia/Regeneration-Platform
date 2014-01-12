@@ -18,3 +18,5 @@ Route::get('/', function()
 
 // Highscores package
 Route::resource('highscores', 'HighscoresController');
+// Social package
+Route::resource('social', 'SocialController');
