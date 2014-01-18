@@ -8,7 +8,7 @@
 		<script> window.require || document.write('<script data-main="start" src="dependencies/requirejs/require.js">\x3C/script>'); </script>
 		<script type="text/javascript" src="http://cdn.jsdelivr.net/melonjs/0.9.8/melonJS.min.js"></script>
 		
-		<title>Regen Primer</title>
+		<title>Regen Platform</title>
 	</head>
 	<body id="layout"></body>
 </html>
