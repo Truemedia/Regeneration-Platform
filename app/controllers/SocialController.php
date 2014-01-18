@@ -9,11 +9,25 @@ class SocialController extends \BaseController {
 	 */
 	public function index()
 	{
-		// Return backbone compatible JSON response
-		return json_encode( array(
-			'identifier' => 'title',
-			'items' => Social::all()->toArray()
-		));
+		$identifier = 'title';
+		$items = Social::all()->toArray();
+
+		// Compile data
+		$data = compact('identifier', 'items');
+
+		// Handle request
+		switch (Request::format()) {
+
+			// Restful
+			case 'json':
+				return Response::json($data);
+			break;
+
+			// CRUDL
+			default:
+				return View::make('social.listing', $data);
+			break;
+		}
 	}
 
 	/**
