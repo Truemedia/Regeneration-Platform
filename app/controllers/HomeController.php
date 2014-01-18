@@ -15,9 +15,10 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	/* Game page */
+	public function index()
 	{
-		return View::make('hello');
+		return View::make('game');
 	}
 
 }

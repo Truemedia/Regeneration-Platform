@@ -11,12 +11,15 @@
 |
 */
 
+// Default page
 Route::get('/', function()
 {
-	return View::make('hello');
+	return Redirect::route('game');
 });
 
-// Highscores package
+// Game page
+Route::get('play', array('as' => 'game', 'uses' => 'HomeController@index'));
+
+// Restful packages
 Route::resource('highscores', 'HighscoresController');
-// Social package
 Route::resource('social', 'SocialController');
