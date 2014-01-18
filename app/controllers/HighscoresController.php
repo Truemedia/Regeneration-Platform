@@ -2,8 +2,6 @@
 
 class HighscoresController extends \BaseController {
 
-	public $restful = true;
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -11,11 +9,26 @@ class HighscoresController extends \BaseController {
 	 */
 	public function index()
 	{
-		// Return backbone compatible JSON response
-		return json_encode( array(
-			'identifier' => 'title',
-			'items' => Highscore::all()->toArray()
-		));
+		// Build data
+		$identifier = 'title';
+		$items = Highscore::all()->toArray();
+
+		// Compile data
+		$data = compact('identifier', 'items');
+
+		// Handle request
+		switch (Request::format()) {
+
+			// Restful
+			case 'json':
+				return Response::json($data);
+			break;
+
+			// CRUDL
+			default:
+				return View::make('highscores.listing', $data);
+			break;
+		}
 	}
 
 	/**
