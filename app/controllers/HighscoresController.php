@@ -3,6 +3,11 @@
 class HighscoresController extends \BaseController {
 
 	/**
+     * The layout that should be used for standard responses.
+     */
+    protected $layout = 'layouts.crudl';
+
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -26,7 +31,7 @@ class HighscoresController extends \BaseController {
 
 			// CRUDL
 			default:
-				return View::make('highscores.listing', $data);
+				$this->layout->content = View::make('highscores.listing', $data);
 			break;
 		}
 	}

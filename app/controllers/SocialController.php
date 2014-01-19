@@ -3,6 +3,11 @@
 class SocialController extends \BaseController {
 
 	/**
+     * The layout that should be used for standard responses.
+     */
+    protected $layout = 'layouts.crudl';
+
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -25,7 +30,7 @@ class SocialController extends \BaseController {
 
 			// CRUDL
 			default:
-				return View::make('social.listing', $data);
+				$this->layout->content = View::make('social.listing', $data);
 			break;
 		}
 	}

@@ -1,8 +1,12 @@
 <h1>Highscores - Listing Page</h1>
-<ul>
+<table class="table table-striped table-bordered table-hover">
 	<?php foreach ($items as $item) : ?>
-	<li>
-		<pre><?php print_r($item); ?></pre>
-	</li>
+	<tr>
+		<?php foreach($item as $attribute) : ?>
+		<td>
+			<?php echo $attribute; ?>
+		</td>
+		<?php endforeach; ?>
+	</tr>
 	<?php endforeach; ?>
-</li>
+</table>
